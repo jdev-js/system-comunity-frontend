@@ -1,6 +1,7 @@
 import { Link, useLocation } from '@remix-run/react'
 import './component.css'
 import useAuth from '~/hooks/useAuth'
+import { useRef } from 'react'
 
 const links = [
   {
@@ -23,13 +24,21 @@ const links = [
     to: '/get-miembros',
     text: 'Ver miembros de familia',
   },
+  {
+    to: '/get-gas',
+    text: 'Ver sensos de gas',
+  },
+  {
+    to: '/create-gas',
+    text: 'Registrar gas',
+  },
 ]
 
-export default function NavAdmin() {
+export const Links = () => {
   const { pathname } = useLocation()
   const Auth = useAuth()
   return (
-    <nav className='nav-container'>
+    <>
       {links.map((link) => {
         return (
           <Link
@@ -56,6 +65,31 @@ export default function NavAdmin() {
       >
         Cerrar Sesion
       </Link>
-    </nav>
+    </>
+  )
+}
+
+export default function NavAdmin() {
+  const menuRef = useRef<HTMLDivElement | null>(null)
+
+  const handleClick = () => {
+    menuRef.current?.classList.toggle('menu-active')
+  }
+
+  return (
+    <>
+      <nav className='nav-container'>
+        <button onClick={handleClick} className='button-menu'>
+          Menu
+        </button>
+        <Links />
+      </nav>
+      <div ref={menuRef} className='menu-responsive'>
+        <button onClick={handleClick} className='button-menu'>
+          Menu
+        </button>
+        <Links />
+      </div>
+    </>
   )
 }
