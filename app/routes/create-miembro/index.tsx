@@ -5,8 +5,38 @@ import SectionContainer from '~/components/section-container'
 import Typography from '~/components/typography'
 import Button from '~/components/button'
 import Form from '~/components/form'
+import { useState } from 'react'
+import { request } from '~/services/request'
+import { CREATE_MIEMBRO } from '~/services/miembro'
+
+const initialvalues = {
+  ciJefe: '',
+  firstname: '',
+  lastname: '',
+  ci: '',
+  dateNacimiento: '',
+  age: '',
+}
 
 export default function CreateMiembro() {
+  const [values, setValues] = useState(initialvalues)
+
+  const handleChange =
+    (key: string) => (e: React.FormEvent<HTMLInputElement>) => {
+      setValues({
+        ...values,
+        [key]: e.currentTarget.value,
+      })
+    }
+
+  const handleSubmit = async () => {
+    const [err, data] = await request(CREATE_MIEMBRO, { input: { ...values } })
+    if (err) {
+      console.error(err)
+    }
+    console.log(data)
+  }
+
   return (
     <Container>
       <NavAdmin />
@@ -17,23 +47,42 @@ export default function CreateMiembro() {
           </Typography>
           <Form>
             <Input
+              onChange={handleChange('ciJeje')}
               size='md'
               placeholder='cedula del jefe de familia'
-              name='ci-jefe'
             />
-            <Input size='md' placeholder='nombre completo' name='firtname' />
-            <Input size='md' placeholder='apellido completo' name='lastname' />
-            <Input size='md' placeholder='numero de telefeno' name='phone' />
-            <Input size='md' placeholder='direccion' name='address' />
-            <Input size='md' placeholder='cedula de identidad' name='ci' />
             <Input
+              onChange={handleChange('firstname')}
+              size='md'
+              placeholder='nombre completo'
+            />
+            <Input
+              onChange={handleChange('lastname')}
+              size='md'
+              placeholder='apellido completo'
+            />
+            <Input
+              onChange={handleChange('ci')}
+              size='md'
+              placeholder='cedula de identidad'
+            />
+            <Input
+              onChange={handleChange('dateNacimiento')}
               size='md'
               placeholder='fecha de nacimiento'
-              name='date_nacimiento'
             />
-            <Input size='md' placeholder='edad' name='age' />
+            <Input
+              onChange={handleChange('age')}
+              size='md'
+              placeholder='edad'
+            />
           </Form>
-          <Button style={{ marginTop: '20px' }} color='primary' size='lg'>
+          <Button
+            onClick={handleSubmit}
+            style={{ marginTop: '20px' }}
+            color='primary'
+            size='lg'
+          >
             Crear miembro
           </Button>
         </SectionContainer>
