@@ -6,6 +6,6 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #ffff;
 }
