@@ -17,13 +17,17 @@ export default function ListItemJefe({
         variant='3xl'
         style={{ marginTop: '20px', marginBottom: '30px' }}
       >
-        Jefes de familia
+        Jefes de familia {data?.length && '-' } {data?.length}
       </Typography>
       {data === null ? (
         <Typography
           color='dark'
           variant='3xl'
-          style={{ marginTop: '20px', marginBottom: '30px' }}
+          style={{
+            marginTop: '20px',
+            marginBottom: '30px',
+            textAlign: 'center',
+          }}
         >
           No se encuentran jefes de familia
         </Typography>
@@ -35,7 +39,11 @@ export default function ListItemJefe({
         <Typography
           color='dark'
           variant='3xl'
-          style={{ marginTop: '20px', marginBottom: '30px' }}
+          style={{
+            marginTop: '20px',
+            marginBottom: '30px',
+            textAlign: 'center',
+          }}
         >
           No hay jefes de familia registrados
         </Typography>

@@ -87,7 +87,11 @@ export default function UpdateJefePage() {
       <NavAdmin />
       <Container>
         <SectionContainer align='start'>
-          <Typography color='dark' style={{ marginTop: '20px' }} variant='3xl'>
+          <Typography
+            color='dark'
+            style={{ marginTop: '20px', marginBottom: '20px' }}
+            variant='3xl'
+          >
             Modificar jefe de familia
           </Typography>
           <Form>
