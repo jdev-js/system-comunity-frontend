@@ -1,3 +1,13 @@
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  padding: 5px;
+  border-top: 1px solid #0084ff;
+}
+
 .container-card-info {
   width: 80%;
   display: grid;
@@ -41,8 +51,20 @@
 
   & p {
     color: #1c1c1c;
-    font-size: 20px;
+    font-size: 23px;
+    margin-top: 5px;
     font-weight: 30px;
     opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-card-info {
+    grid-template-columns: 1fr;
+  }
+  .info-user {
+    & h1 {
+      font-size: 25px;
+    }
   }
 }

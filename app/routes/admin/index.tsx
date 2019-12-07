@@ -5,6 +5,7 @@ import './index.css'
 import NavAdmin from '~/components/nav-admin'
 import useAuth from '~/hooks/useAuth'
 import type { MetaFunction } from '@remix-run/node'
+import SectionContainer from '~/components/section-container'
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,7 +23,7 @@ export default function AdminPage() {
   return (
     <Container>
       <NavAdmin />
-      <section className='section-container'>
+      <SectionContainer align='center'>
         <div className='info-user'>
           <Typography variant='3xl' as='h1'>
             <strong>Bienvenido</strong> {Auth?.auth?.firstname}{' '}
@@ -55,8 +56,12 @@ export default function AdminPage() {
             />
           </div>
         </section>
-      </section>
-      <footer></footer>
+        <footer>
+          <Typography color='dark' variant='lg' as='h6'>
+            Consejo Comunal Nuestra Señora de la Chiquinquirá
+          </Typography>
+        </footer>
+      </SectionContainer>
     </Container>
   )
 }
