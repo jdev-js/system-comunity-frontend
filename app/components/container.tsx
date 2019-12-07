@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import './component.css'
 
 interface ContainerProps {
@@ -12,9 +13,18 @@ interface ContainerProps {
     | 'section'
     | 'nav'
   children: React.ReactNode | React.ReactNode[]
+  style?: CSSProperties
 }
 
-export default function Container({ as = 'main', children }: ContainerProps) {
+export default function Container({
+  as = 'main',
+  children,
+  style,
+}: ContainerProps) {
   const Component = as
-  return <Component className='container'>{children}</Component>
+  return (
+    <Component style={style} className='container'>
+      {children}
+    </Component>
+  )
 }
