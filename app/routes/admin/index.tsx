@@ -56,11 +56,6 @@ export default function AdminPage() {
             />
           </div>
         </section>
-        <footer>
-          <Typography color='dark' variant='lg' as='h6'>
-            Consejo Comunal Nuestra Señora de la Chiquinquirá
-          </Typography>
-        </footer>
       </SectionContainer>
     </Container>
   )
