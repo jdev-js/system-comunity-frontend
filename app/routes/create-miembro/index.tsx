@@ -69,7 +69,11 @@ export default function CreateMiembroPage() {
       <NavAdmin />
       <Container>
         <SectionContainer align='start'>
-          <Typography color='dark' style={{ marginTop: '20px' }} variant='3xl'>
+          <Typography
+            color='dark'
+            style={{ marginTop: '20px', marginBottom: '20px' }}
+            variant='3xl'
+          >
             Crear miembro de familia
           </Typography>
           <Form>

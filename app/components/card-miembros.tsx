@@ -4,6 +4,8 @@ import { request } from '~/services/request'
 import Typography from './typography'
 import { DELETE_MIEMBRO, DeleteMiembro, Miembro } from '~/services/miembro'
 import { useNavigate } from '@remix-run/react'
+import { PencilIcon } from './icons/pencil'
+import { XCircleIcon } from './icons/x-circle'
 
 export default function CardMiembro({
   data,
@@ -13,6 +15,7 @@ export default function CardMiembro({
   onUpdate: () => void
 }) {
   const navigate = useNavigate()
+  const mediaQuery = window.matchMedia('(max-width: 500px)')
   const handleDelete = async () => {
     const [, dataJefe] = await request<DeleteMiembro>(DELETE_MIEMBRO, {
       id: data.id,
@@ -26,38 +29,76 @@ export default function CardMiembro({
     navigate(`/update-miembro?id=${data.id}`)
   }
 
-  console.log(data)
-
   return (
     <article className='card-info-person'>
       <div className='card-container-info'>
-        <h4>
-          {data.firstname} {data.lastname}
-        </h4>
-        <p>{data.ci}</p>
-      </div>
-      <div className='card-container-info'>
-        <Typography as='h4' color='dark'>
-          Fecha de nacimiento
+        <Typography as='h4' variant='md' color='dark'>
+          Nombre
         </Typography>
-        <Typography as='p' variant='md' color='dark'>
-          {data.dateNacimiento}
+        <Typography as='p' variant='sm' color='dark'>
+          {data.firstname}
         </Typography>
       </div>
       <div className='card-container-info'>
-        <Typography as='h4' color='dark'>
-          Edad
+        <Typography as='h4' variant='md' color='dark'>
+          Apellido
         </Typography>
-        <Typography as='p' variant='md' color='dark'>
-          {data.age}
+        <Typography as='p' variant='sm' color='dark'>
+          {data.lastname}
         </Typography>
       </div>
+      {mediaQuery.matches ? (
+        <></>
+      ) : (
+        <>
+          <div className='card-container-info'>
+            <Typography as='h4' variant='md' color='dark'>
+              Edad
+            </Typography>
+            <Typography as='p' variant='sm' color='dark'>
+              {data.age}
+            </Typography>
+          </div>
+          <div className='card-container-info'>
+            <Typography as='h4' variant='lg' color='dark'>
+              Cedula
+            </Typography>
+            <Typography as='p' variant='sm' color='dark'>
+              {data.ci}
+            </Typography>
+          </div>
+          <div className='card-container-info'>
+            <Typography as='h4' variant='lg' color='dark'>
+              Fecha nacimiento
+            </Typography>
+            <Typography as='p' variant='sm' color='dark'>
+              {data.dateNacimiento}
+            </Typography>
+          </div>
+          <div className='card-container-info'>
+            <Typography as='h4' variant='md' color='dark'>
+              Telefeno o Email
+            </Typography>
+            <Typography as='p' variant='sm' color='dark'>
+              {data.phone}
+            </Typography>
+          </div>
+          <div className='card-container-info'>
+            <Typography as='h4' variant='lg' color='dark'>
+              Sexo
+            </Typography>
+            <Typography as='p' variant='sm' color='dark'>
+              {data.sexo}
+            </Typography>
+          </div>
+        </>
+      )}
       <div className='card-container-button'>
-        <Button onClick={handleUpdate} color='primary' size='sm'>
-          Editar
+        <Button onClick={handleUpdate} color='primary' size='icon'>
+          <PencilIcon />
         </Button>
-        <Button onClick={handleDelete} color='error' size='sm'>
-          Eliminar
+        <Button onClick={handleDelete} color='error' size='icon'>
+          <XCircleIcon />
         </Button>
       </div>
     </article>

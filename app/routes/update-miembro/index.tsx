@@ -90,7 +90,11 @@ export default function UpdateMiembroPage() {
       <NavAdmin />
       <Container>
         <SectionContainer align='start'>
-          <Typography color='dark' style={{ marginTop: '20px' }} variant='3xl'>
+          <Typography
+            color='dark'
+            style={{ marginTop: '20px', marginBottom: '20px' }}
+            variant='3xl'
+          >
             Modificar miembro de familia
           </Typography>
           <Form>
