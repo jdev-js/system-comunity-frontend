@@ -10,3 +10,13 @@
   background-color: #24242411;
   box-shadow: 0px 0px 15px #1c1c1c61;
 }
+
+@media screen and (max-width: 500px) {
+  .form {
+    width: 85%;
+    height: 60%;
+    & .container-input{
+      width: 90%;
+    }
+  }
+}

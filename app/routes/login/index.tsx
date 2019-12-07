@@ -47,13 +47,14 @@ export default function LoginPage() {
   }
 
   return (
-    <Container>
-      <SectionContainer>
+    <Container style={{ height: '100vh' }}>
+      <SectionContainer style={{ height: '100%' }}>
         <div className='form'>
           <Typography style={{ marginBottom: '12px' }} color='dark'>
             Iniciar Sesion
           </Typography>
           <Input
+            text="Nombre de usuario"
             value={username}
             onChange={(e) => setUsername(e.currentTarget.value)}
             name='username'
@@ -61,6 +62,7 @@ export default function LoginPage() {
             placeholder='nombre de usuario'
           />
           <Input
+            text="Contraseña"
             value={password}
             type='password'
             placeholder='contraseña de usuario'
