@@ -23,7 +23,7 @@ query{
         numberHome
         sizeLengthGas
         totalCilindros
-        gasComunalLength
+        gasComunal
         gasCoperativa
     }
 }
@@ -37,7 +37,7 @@ query getGasUser($idUser: ID!){
         numberHome
         sizeLengthGas
         totalCilindros
-        gasComunalLength
+        gasComunal
         gasCoperativa
     }
 }
