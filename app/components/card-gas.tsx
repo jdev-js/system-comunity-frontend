@@ -17,10 +17,10 @@ export default function CardGas({
   const navigate = useNavigate()
   const mediaQuery = window.matchMedia('(max-width: 500px)')
   const handleDelete = async () => {
-    const [, dataJefe] = await request<DeleteGas>(DELETE_GAS, {
+    const [, dataGas] = await request<DeleteGas>(DELETE_GAS, {
       id: data.id,
     })
-    if (dataJefe?.data.deleteGas) {
+    if (dataGas?.data.deleteGas) {
       onUpdate()
     }
   }

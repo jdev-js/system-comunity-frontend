@@ -17,7 +17,7 @@ export default function ListItemGas({
         variant='3xl'
         style={{ marginTop: '20px', marginBottom: '30px' }}
       >
-        Registros de gas {data?.length && '-'} {data?.length}
+        Registros de gas {data?.length > 0 ?'-' :''} {data?.length}
       </Typography>
       {data === null ? (
         <Typography
