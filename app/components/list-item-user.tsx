@@ -17,13 +17,17 @@ export default function ListItemUser({
         variant='3xl'
         style={{ marginTop: '20px', marginBottom: '30px' }}
       >
-        Usuarios registrados
+        Usuarios registrados {data?.length && '-' } {data?.length}
       </Typography>
       {data === null ? (
         <Typography
           color='dark'
           variant='3xl'
-          style={{ marginTop: '20px', marginBottom: '30px' }}
+          style={{
+            marginTop: '20px',
+            marginBottom: '30px',
+            textAlign: 'center',
+          }}
         >
           No se encuentran usuarios
         </Typography>
@@ -35,7 +39,11 @@ export default function ListItemUser({
         <Typography
           color='dark'
           variant='3xl'
-          style={{ marginTop: '20px', marginBottom: '30px' }}
+          style={{
+            marginTop: '20px',
+            marginBottom: '30px',
+            textAlign: 'center',
+          }}
         >
           No hay usuarios registrados
         </Typography>

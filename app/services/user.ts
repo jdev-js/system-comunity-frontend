@@ -73,6 +73,7 @@ export interface User {
   id: string
   firstname: string
   lastname: string
+  countJefes?: number
   phone: string
   username: string
   password: string

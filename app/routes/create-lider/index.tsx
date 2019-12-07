@@ -63,7 +63,11 @@ export default function CreateLiderPage() {
       <NavAdmin />
       <Container>
         <SectionContainer align='start'>
-          <Typography color='dark' style={{ marginTop: '20px' }} variant='3xl'>
+          <Typography
+            color='dark'
+            style={{ marginTop: '20px', marginBottom: '20px' }}
+            variant='3xl'
+          >
             Crear Lider de Calle
           </Typography>
           <Form>
@@ -107,7 +111,7 @@ export default function CreateLiderPage() {
               value={values.street}
               onChange={handleChange('street')}
               size='md'
-              placeholder='nombre de usuario'
+              placeholder='numero de calle'
             />
             <Button
               onClick={handleSubmit}

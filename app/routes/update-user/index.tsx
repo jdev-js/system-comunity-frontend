@@ -27,6 +27,7 @@ const initialvalues = {
   username: '',
   password: '',
   phone: '',
+  street: '',
 }
 
 export default function UpdateUserPage() {
@@ -51,7 +52,7 @@ export default function UpdateUserPage() {
         id: searchParams.get('id') ?? '',
       })
       if (data?.data.getUser) {
-        const { password, phone, username, firstname, lastname } =
+        const { password, phone, username, firstname, lastname, street } =
           data.data.getUser
         setValues({
           password,
@@ -59,6 +60,7 @@ export default function UpdateUserPage() {
           username,
           firstname,
           lastname,
+          street,
         })
       }
     }
@@ -87,7 +89,11 @@ export default function UpdateUserPage() {
       <NavAdmin />
       <Container>
         <SectionContainer align='start'>
-          <Typography color='dark' style={{ marginTop: '20px' }} variant='3xl'>
+          <Typography
+            color='dark'
+            style={{ marginTop: '20px', marginBottom: '20px' }}
+            variant='3xl'
+          >
             Modificar usuario
           </Typography>
           <Form>
@@ -125,6 +131,13 @@ export default function UpdateUserPage() {
               size='md'
               placeholder='numero de telefono'
               text='Numero de telefeno'
+            />
+            <Input
+              text='Numero de calle'
+              value={values.street}
+              onChange={handleChange('street')}
+              size='md'
+              placeholder='numero de calle'
             />
             <Button
               onClick={handleSubmit}
