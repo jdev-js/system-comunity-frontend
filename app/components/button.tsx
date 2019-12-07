@@ -1,7 +1,7 @@
 import './component.css'
 
 interface ButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
-  size: 'sm' | 'lg' | 'md' | 'micro'
+  size: 'sm' | 'lg' | 'md' | 'micro' | 'icon'
   color: 'primary' | 'secondary' | 'error'
   children: React.ReactNode | React.ReactNode[]
 }
