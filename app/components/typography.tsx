@@ -12,7 +12,7 @@ interface TypographyProps
 export default function Typography({
   as = 'h1',
   variant = '2xl',
-  className,
+  className = '',
   color = 'light',
   children,
   ...props
