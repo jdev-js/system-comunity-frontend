@@ -1,18 +1,18 @@
 :root {
   --bg-primary: #1c1c1c;
   --bg-secondary: #0084ff;
+  --bg-white: #fff;
 
   --bg-color-button: #1c1c1c;
   --bg-color-input: #0084ff;
   --text-color-button: #ffff;
-  --shadow: 0px 0px 2px #1c1c1c62;
+  --shadow: 0px 0px 4px #1c1c1c62;
   --rounded: 8px;
   --text-size: 12px;
   --text-color: #fff;
-  --text-sm: 12px;
-  --text-md: 14px;
-  --text-lg: 16px;
-  --text-xl: 18px;
+
+  --text-error: #eb3434;
+  --bg-error: #ff9e9ec7;
 }
 
 .typography {
@@ -54,18 +54,24 @@
   --text-size: 38px;
 }
 
-.input-size-full {
+.container-input-size-full {
   width: 100%;
 }
-
-.input-size-lg {
+.container-input-size-lg {
   width: 70%;
 }
-.input-size-md {
+.container-input-size-md {
   width: 50%;
 }
-.input-size-sm {
+.container-input-size-sm {
   width: 40%;
+}
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px 0px;
 }
 
 .input {
@@ -150,9 +156,9 @@
   }
 }
 .bg-secondary {
-  --bg-color-button: var(--bg-color-button);
+  --bg-color-button: #0ed554;
   &:hover {
-    background-color: #303030;
+    background-color: #2cf773;
     scale: 1.03;
   }
 }
@@ -281,7 +287,18 @@
   transition: all ease-in-out 200ms;
 }
 
-.card-jefe {
+.container-input {
+  color: var(--bg-primary);
+  display: block;
+  display: flex;
+  flex-direction: column;
+  & p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
+
+.card-info-person {
   --text-color: #1c1c1c;
   width: 70%;
   height: auto;
