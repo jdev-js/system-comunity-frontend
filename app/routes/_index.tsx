@@ -1,7 +1,7 @@
-import type { MetaFunction } from '@remix-run/node'
 import { useNavigate } from '@remix-run/react'
 import { useEffect } from 'react'
 import useAuth from '~/hooks/useAuth'
+import type { MetaFunction } from '@remix-run/node'
 
 export const meta: MetaFunction = () => {
   return [
