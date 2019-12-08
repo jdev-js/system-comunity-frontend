@@ -3,18 +3,33 @@ import Typography from '~/components/typography'
 import CardInfo from '~/components/card-info'
 import './index.css'
 import NavAdmin from '~/components/nav-admin'
+import useAuth from '~/hooks/useAuth'
+import type { MetaFunction } from '@remix-run/node'
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'Gestionador de datos de la Comunidad' },
+    {
+      name: 'description',
+      content: 'Gestionador de datos de la comunidad eficiente y rapido',
+    },
+  ]
+}
 
 export default function AdminPage() {
+  const Auth = useAuth()
+  const date = new Date()
   return (
     <Container>
       <NavAdmin />
       <section className='section-container'>
         <div className='info-user'>
           <Typography variant='3xl' as='h1'>
-            <strong>Bienvenido</strong> Jesus Alcala
+            <strong>Bienvenido</strong> {Auth?.auth?.firstname}{' '}
+            {Auth?.auth?.lastname}
           </Typography>
           <Typography as='p' variant='sm'>
-            10:30pm
+            {date.getHours().toString()}:{date.getMinutes().toString()}
           </Typography>
         </div>
         <section className='info-system'>
@@ -23,22 +38,18 @@ export default function AdminPage() {
           </Typography>
           <div className='container-card-info'>
             <CardInfo
-              numberPerson={120}
               title='Miembros de familia'
               description='cada miembro de familia pertenece a un jefe de familia'
             />
             <CardInfo
-              numberPerson={50}
               title='Jefe de Familia'
               description='jefe de familia es la persona quien encabeza a la familia'
             />
             <CardInfo
-              numberPerson={50}
               title='Jefe de Comunidad'
               description='jefe de comunidad es la persona al mando de la comunidad'
             />
             <CardInfo
-              numberPerson={50}
               title='Lider de Calle'
               description='Lider de calle es la persona encargada de gestionar cualquier inconveniente en la comunidad'
             />
