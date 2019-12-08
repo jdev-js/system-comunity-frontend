@@ -1,13 +1,13 @@
-import { Miembro } from '~/services/miembro'
+import CardUser from './card-user'
 import ContainerList from './container-list'
 import Typography from './typography'
-import CardMiembro from './card-miembros'
+import { User } from '~/services/user'
 
-export default function ListItemMiembro({
+export default function ListItemUser({
   data,
   onUpdate,
 }: {
-  data: Miembro[] | null
+  data: User[] | null
   onUpdate: () => void
 }) {
   return (
@@ -17,7 +17,7 @@ export default function ListItemMiembro({
         variant='3xl'
         style={{ marginTop: '20px', marginBottom: '30px' }}
       >
-        Miembros de familia
+        Usuarios registrados
       </Typography>
       {data === null ? (
         <Typography
@@ -25,11 +25,11 @@ export default function ListItemMiembro({
           variant='3xl'
           style={{ marginTop: '20px', marginBottom: '30px' }}
         >
-          No se encuentran miembros de familia
+          No se encuentran usuarios
         </Typography>
       ) : data.length > 0 ? (
-        data.map((miembro, index) => (
-          <CardMiembro onUpdate={onUpdate} key={index} data={miembro} />
+        data.map((user, index) => (
+          <CardUser onUpdate={onUpdate} key={index} data={user} />
         ))
       ) : (
         <Typography
@@ -37,7 +37,7 @@ export default function ListItemMiembro({
           variant='3xl'
           style={{ marginTop: '20px', marginBottom: '30px' }}
         >
-          No hay miembros de familia registrados
+          No hay usuarios registrados
         </Typography>
       )}
     </ContainerList>
