@@ -92,11 +92,11 @@ export default function CreateJefePage() {
               placeholder='apellido completo'
             />
             <Input
-              text='Numero telefeno'
+              text='Telefono o Email'
               value={values.phone}
               onChange={handleChange('phone')}
               size='md'
-              placeholder='numero de telefeno'
+              placeholder='telefono o email'
             />
             <Input
               text='Dirección'
