@@ -1,5 +1,6 @@
 import { Link, useLocation } from '@remix-run/react'
 import './component.css'
+import useAuth from '~/hooks/useAuth'
 
 const links = [
   {
@@ -26,6 +27,7 @@ const links = [
 
 export default function NavAdmin() {
   const { pathname } = useLocation()
+  const Auth = useAuth()
   return (
     <nav className='nav-container'>
       {links.map((link) => {
@@ -39,7 +41,19 @@ export default function NavAdmin() {
           </Link>
         )
       })}
-      <Link to='/login' className='link-button'>
+      {Auth?.auth?.role === 'super-user' && (
+        <Link to='/create-lider'>Crear lider de calle</Link>
+      )}
+      {Auth?.auth?.role === 'super-user' && (
+        <Link to='/get-users'>Ver lider de calle</Link>
+      )}
+      <Link
+        onClick={() => {
+          Auth?.logout()
+        }}
+        to='/login'
+        className='link-button'
+      >
         Cerrar Sesion
       </Link>
     </nav>
