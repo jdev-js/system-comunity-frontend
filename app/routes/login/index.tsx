@@ -93,6 +93,7 @@ export default function LoginPage() {
             Login
           </Button>
         </div>
+        <footer>Consejo Comunal Nuestra Señora de la Chiquinquirá</footer>
       </SectionContainer>
     </Container>
   )
