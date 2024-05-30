@@ -54,7 +54,7 @@ export default function CreateLiderPage() {
       setError(err.message)
     }
     if (data?.data.register) {
-      navigate('/get-liders')
+      navigate('/get-users')
     }
   }
 
